@@ -1,0 +1,28 @@
+ generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Contest {
+  id        String   @id @default(uuid())  // Ensure there's a unique ID
+  name      String
+  platform  String
+  date      DateTime
+  time      String
+  duration  String
+  status    String
+  solution   String? @default("https://www.youtube.com/")
+ 
+  url       String   @unique   
+  createdAt DateTime @default(now())
+}
+
+model user{
+  id String @id @default(cuid())
+  name String
+  email String @unique
+}
