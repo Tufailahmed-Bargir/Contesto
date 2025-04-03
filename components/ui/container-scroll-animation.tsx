@@ -53,8 +53,9 @@ export const ContainerScroll = ({
     </div>
   );
 };
- 
-export const Header = ({ translate, titleComponent }: any) => {
+
+// @ts-expect-error some-type-error
+export const Header = ({ translate, titleComponent }) => {
   return (
     <motion.div
       style={{

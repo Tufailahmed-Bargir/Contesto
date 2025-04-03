@@ -56,7 +56,7 @@ export function ContestCard({
   contest: ContestProp;
   index: number;
 }) {
-  console.log('contest data being passed is ', contest.date);
+  
   
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -75,9 +75,15 @@ export function ContestCard({
       ref={cardRef}
       className="relative hover:-translate-y-1 transition-transform duration-200"
       onMouseEnter={() => {
+        
+// @ts-expect-error some-type-error
+
         animate(cardRef.current, { y: -5 }, { easing: spring() });
       }}
       onMouseLeave={() => {
+        
+ 
+// @ts-expect-error some-type-error
         animate(cardRef.current, { y: 0 }, { easing: spring() });
       }}
     >

@@ -3,16 +3,16 @@ import axios from 'axios';
 
 const prisma = new PrismaClient();
 
-interface Contest {
-  name: string;
-  platform: string;
-  date: string;
-  time: string;
-  duration: string;
-  status: string;
-  relativeTime: string;
-  url: string;
-}
+// interface Contest {
+//   name: string;
+//   platform: string;
+//   date: string;
+//   time: string;
+//   duration: string;
+//   status: string;
+//   relativeTime: string;
+//   url: string;
+// }
 
 interface CodeChefAPIResponse {
   past_contests: {
@@ -24,13 +24,13 @@ interface CodeChefAPIResponse {
   }[];
 }
 
-const getRelativeTime = (startTime: Date, now: Date): string => {
-  const diff = startTime.getTime() - now.getTime();
-  const hours = Math.floor(diff / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+// const getRelativeTime = (startTime: Date, now: Date): string => {
+//   const diff = startTime.getTime() - now.getTime();
+//   const hours = Math.floor(diff / (1000 * 60 * 60));
+//   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-  return diff > 0 ? `Starts in ${hours} hr ${minutes} min` : "Started";
-};
+//   return diff > 0 ? `Starts in ${hours} hr ${minutes} min` : "Started";
+// };
 
 export const fetchAndStoreCodeChefContests = async () => {
   try {

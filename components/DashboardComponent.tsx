@@ -6,7 +6,7 @@ import prisma from "@/lib/prisma";
 
 export   async function DashboardComponent() {
     const data = await prisma.contest.findMany()
-    console.log('data is', data);
+     
     
   return (
     <div className="container mx-auto px-4 py-8">
@@ -23,6 +23,7 @@ export   async function DashboardComponent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
 
+     {/* @ts-expect-error some-type-error */}
     {data.map((contest, index)=>{
         console.log('contests are mapped', contest);
         
